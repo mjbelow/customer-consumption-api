@@ -26,6 +26,11 @@ namespace customer_consumption_api.Data
 
             modelBuilder.Entity<MeterLocation>()
             .HasKey(o => new {o.MeterId , o.LocationId, o.ActiveDate});
+
+            modelBuilder.Entity<MeterInterval>()
+            .Property(p => p.ReadValue)
+            .HasColumnType("decimal(7,4)");
+
         }
 
 
