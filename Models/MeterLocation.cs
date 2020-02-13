@@ -8,7 +8,6 @@ namespace customer_consumption_api.Models
 {
     public class MeterLocation
     {
-        [Key]
         public string MeterId { get; set; }
         public string LocationId { get; set; }
         public DateTime ActiveDate { get; set; }
