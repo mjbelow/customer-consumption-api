@@ -23,7 +23,11 @@ namespace customer_consumption_api.Data
         {
             modelBuilder.Entity<CustomerLocation>()
             .HasKey(o => new {o.CustomerId , o.LocationId});
+
+            modelBuilder.Entity<MeterLocation>()
+            .HasKey(o => new {o.MeterId , o.LocationId, o.ActiveDate});
         }
+
 
     }
 }

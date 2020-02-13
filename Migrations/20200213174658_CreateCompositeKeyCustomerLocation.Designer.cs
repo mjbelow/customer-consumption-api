@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using customer_consumption_api.Data;
 
 namespace customer_consumption_api.Migrations
 {
     [DbContext(typeof(CustomerContext))]
-    partial class CustomerContextModelSnapshot : ModelSnapshot
+    [Migration("20200213174658_CreateCompositeKeyCustomerLocation")]
+    partial class CreateCompositeKeyCustomerLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,18 +228,24 @@ namespace customer_consumption_api.Migrations
                     b.Property<string>("MeterId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LocationId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("ActiveDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("InactiveDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("MeterId", "LocationId", "ActiveDate");
+                    b.Property<string>("LocationId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MeterId1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MeterId");
 
                     b.HasIndex("LocationId");
+
+                    b.HasIndex("MeterId1");
 
                     b.ToTable("MeterLocations");
                 });
@@ -268,13 +276,11 @@ namespace customer_consumption_api.Migrations
                 {
                     b.HasOne("customer_consumption_api.Models.Location", "Location")
                         .WithMany("MeterLocations")
-                        .HasForeignKey("LocationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LocationId");
 
                     b.HasOne("customer_consumption_api.Models.Meter", "Meter")
                         .WithMany("MeterLocations")
-                        .HasForeignKey("MeterId")
+                        .HasForeignKey("MeterId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
