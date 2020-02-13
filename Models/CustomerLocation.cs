@@ -8,7 +8,7 @@ namespace customer_consumption_api.Models
 {
     public class CustomerLocation
     {
-        [Key]
+        
         public string CustomerId { get; set; }
         
         public string LocationId { get; set; }
