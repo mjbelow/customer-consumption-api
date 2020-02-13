@@ -12,16 +12,17 @@ namespace customer_consumption_api.Data
         public CustomerContext(DbContextOptions<CustomerContext> options) : base(options)
         {
         }
-
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<CustomerLocation> CustomerLocations { get; set; }
         public DbSet<Meter> Meters { get; set; }
         public DbSet<MeterLocation> MeterLocations { get; set; }
         public DbSet<MeterInterval> MeterIntervals { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<CustomerLocation>()
+            .HasKey(o => new {o.CustomerId , o.LocationId});
         }
 
     }
