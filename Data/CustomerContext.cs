@@ -25,12 +25,31 @@ namespace customer_consumption_api.Data
             .HasKey(o => new {o.CustomerId , o.LocationId});
 
             modelBuilder.Entity<MeterLocation>()
-            .HasKey(o => new {o.MeterId , o.LocationId, o.ActiveDate});
+            .HasKey(o => new {o.MeterId , o.LocationId});
 
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.ReadValue)
             .HasColumnType("decimal(7,4)");
 
+            modelBuilder.Entity<CustomerLocation>()
+            .Property(p => p.ServiceStart)
+            .HasColumnType("Date");
+
+            modelBuilder.Entity<CustomerLocation>()
+            .Property(p => p.ServiceEnd)
+            .HasColumnType("Date");
+
+            modelBuilder.Entity<MeterLocation>()
+            .Property(p => p.ActiveDate)
+            .HasColumnType("Date");
+
+            modelBuilder.Entity<MeterLocation>()
+            .Property(p => p.InactiveDate)
+            .HasColumnType("Date");
+
+            modelBuilder.Entity<MeterInterval>()
+            .Property(p => p.ReadDate)
+            .HasColumnType("Date");
         }
 
 
