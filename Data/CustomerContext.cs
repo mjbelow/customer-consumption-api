@@ -25,7 +25,7 @@ namespace customer_consumption_api.Data
             .HasKey(o => new {o.CustomerId , o.LocationId});
 
             modelBuilder.Entity<MeterLocation>()
-            .HasKey(o => new {o.MeterId , o.LocationId});
+            .HasKey(o => new {o.MeterId , o.LocationId, o.ActiveDate});
 
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.ReadValue)
@@ -50,6 +50,10 @@ namespace customer_consumption_api.Data
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.ReadDate)
             .HasColumnType("Date");
+
+            modelBuilder.Entity<MeterInterval>()
+            .Property(p => p.Id)
+            .HasDefaultValueSql("newid()");
         }
 
 
