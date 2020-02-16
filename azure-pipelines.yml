@@ -1,7 +1,7 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-trigger: none
+# trigger: none
 pr:
   autoCancel: true
   branches:
@@ -42,7 +42,7 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Deploy'
   inputs:
-    azureSubscription: 'My Connection'
+    azureSubscription: 'DevOpsServiceConnection'
     appType: 'webAppLinux'
     appName: 'customer-consumption-api'
     package: '$(System.ArtifactsDirectory)/**/*.zip'
