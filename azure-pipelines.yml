@@ -8,6 +8,7 @@ trigger:
     exclude:
     - matthew-new
     - releases/*
+    - feature/*
     - comeon
     - pls/
     - work/*
@@ -47,6 +48,8 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+
+-script: ls
 
 - task: AzureWebApp@1
   displayName: 'Deploy'
