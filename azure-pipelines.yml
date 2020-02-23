@@ -5,6 +5,8 @@ trigger:
   branches:
     include:
     - master
+    exclude:
+    - '*'
 pr:
   autoCancel: true
   branches:
