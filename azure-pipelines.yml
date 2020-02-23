@@ -6,7 +6,7 @@ trigger:
     include:
     - master
     exclude:
-    - '*'
+    - 'matthew-new'
 pr:
   autoCancel: true
   branches:
