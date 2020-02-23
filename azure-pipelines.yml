@@ -1,8 +1,6 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-#trigger:
-        #- master
 pr:
   autoCancel: true
   branches:
@@ -40,6 +38,9 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+
+- script: ls
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
 - task: AzureWebApp@1
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
