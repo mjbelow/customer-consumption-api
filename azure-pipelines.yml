@@ -1,17 +1,7 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-trigger:
-  branches:
-    include:
-    - master
-    exclude:
-    - matthew-new
-    - releases/*
-    - feature/*
-    - comeon
-    - pls/
-    - work/*
+
 pr:
   autoCancel: true
   branches:
