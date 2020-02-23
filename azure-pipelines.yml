@@ -7,6 +7,10 @@ trigger:
     - master
     exclude:
     - matthew-new
+    - releases/*
+    - comeon
+    - pls/
+    - work/*
 pr:
   autoCancel: true
   branches:
