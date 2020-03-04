@@ -3,8 +3,8 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/ci-build-git?view=azure-devops&tabs=yaml#exclude-or-include-tasks-for-builds-based-on-the-branch-being-built
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/integrations/slack?view=azure-devops
 
-trigger:
-- master
+#trigger:
+#- master
 pr:
   autoCancel: true
   branches:
