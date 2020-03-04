@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+//I added below namespaces.
+using customer_consumption_api.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace customer_consumption_api
 {
@@ -25,7 +28,11 @@ namespace customer_consumption_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // I added below statement.
+            services.AddDbContext<CustomerContext>(options =>
+                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
