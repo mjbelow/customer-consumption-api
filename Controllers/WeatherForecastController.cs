@@ -24,16 +24,12 @@ namespace customer_consumption_api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<DarkSky.Models.Forecast> Get(double latitude, double longitude, int year, int month, int day)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+          var darkSky = new DarkSky.Services.DarkSkyService("98613d2e894e074b90173af165d94d47");
+          var forecast = await darkSky.GetForecast(latitude, longitude, new DarkSky.Models.OptionalParameters{ForecastDateTime = new DateTime(year, month, day)});
+
+          return forecast.Response;
         }
     }
 }
