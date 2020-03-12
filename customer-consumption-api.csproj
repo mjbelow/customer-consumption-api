@@ -1,10 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>customer_consumption_api</RootNamespace>
+    <UserSecretsId>a38ee69f-1a16-4d3d-8ac8-e72aef144465</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="DarkSkyCore" Version="6.0.2" />
     <PackageReference Include="JsonApiDotNetCore" Version="4.0.0-alpha4" />
@@ -16,6 +16,4 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
   </ItemGroup>
-
-
 </Project>

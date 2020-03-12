@@ -33,6 +33,14 @@ namespace customer_consumption_api
             // I added below statement.
             services.AddDbContext<CustomerContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddJsonApi<CustomerContext>(
+                options => 
+                {
+                    options.Namespace = "api/v1";
+                    options.DefaultPageSize = 25;
+                    options.IncludeTotalRecordCount = true;
+                    
+                });
             services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
