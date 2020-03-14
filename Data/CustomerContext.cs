@@ -52,6 +52,10 @@ namespace customer_consumption_api.Data
             .Property(p => p.InactiveDate)
             .HasColumnType("Date");
 
+            modelBuilder.Entity<MeterLocation>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.ReadDate)
             .HasColumnType("Date");
@@ -63,6 +67,14 @@ namespace customer_consumption_api.Data
             modelBuilder.Entity<Weather>()
             .Property(p => p.ReadDate)
             .HasColumnType("Date");
+
+            modelBuilder.Entity<Weather>()
+            .Property(p => p.Value)
+            .HasColumnType("decimal(5,2)");
+
+            modelBuilder.Entity<Weather>()
+            .Property(p => p.Id)
+            .HasDefaultValueSql("newid()");
         }
 
 
