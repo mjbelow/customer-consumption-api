@@ -39,6 +39,10 @@ namespace customer_consumption_api.Data
             .Property(p => p.ServiceEnd)
             .HasColumnType("Date");
 
+            modelBuilder.Entity<CustomerLocation>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<MeterLocation>()
             .Property(p => p.ActiveDate)
             .HasColumnType("Date");
