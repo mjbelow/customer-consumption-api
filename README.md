@@ -20,5 +20,5 @@ This README file outlines the details of API created with .Net Core to work with
 * Remove Migration
 `dotnet ef migrations remove`
 
-* Update Database
+* Run Migration / Update Database
 `dotnet ef database update`
