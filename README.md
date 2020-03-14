@@ -14,8 +14,11 @@ This README file outlines the details of API created with .Net Core to work with
 
 ## How to run Entity Framework Migrations:
 
+*  Add Migration
 `dotnet ef migrations add [CommitName]`
 
+* Remove Migration
 `dotnet ef migrations remove`
 
+* Update Database
 `dotnet ef database update`
