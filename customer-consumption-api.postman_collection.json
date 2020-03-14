@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "6d295ace-8e1f-4d90-b0ad-26fe3ed91f24",
+		"name": "customer-consumption-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "WeatherForecast",
+			"item": [
+				{
+					"name": "https://customer-consumption-api.azurewebsites.net/weatherforecast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://customer-consumption-api.azurewebsites.net/weatherforecast?latitude=35.9606&longitude=-83.9207&year=2020&month=1&day=1&hour=0",
+							"protocol": "https",
+							"host": [
+								"customer-consumption-api",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"weatherforecast"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "35.9606"
+								},
+								{
+									"key": "longitude",
+									"value": "-83.9207"
+								},
+								{
+									"key": "year",
+									"value": "2020"
+								},
+								{
+									"key": "month",
+									"value": "1"
+								},
+								{
+									"key": "day",
+									"value": "1"
+								},
+								{
+									"key": "hour",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "http://localhost:5000/customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/locations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/meters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/meters",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"meters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/MeterIntervals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/MeterIntervals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"MeterIntervals"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
