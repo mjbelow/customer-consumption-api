@@ -8,7 +8,6 @@ namespace customer_consumption_api.Models
 {
     public class Meter : Identifiable<string>
     {
-        // public string Id { get; set; }
         [Attr]
         public string MeterType { get; set; }
         [Attr]

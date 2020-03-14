@@ -8,12 +8,12 @@ namespace customer_consumption_api.Models
 {
     public class Customer : Identifiable<string>
     {
-        [Attr("name")] 
+        [Attr] 
         public string Name { get; set; }
 
         // 'Customers table' and 'Locations table' has many to many relationship.
         // We have a bridge table 'CustomersLocations'.
-        [HasMany("location")]
+        [HasMany]
         public ICollection<CustomerLocation> CustomerLocations { get; set; }
     }
 }

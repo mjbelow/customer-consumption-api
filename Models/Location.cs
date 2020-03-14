@@ -9,8 +9,6 @@ namespace customer_consumption_api.Models
 {
     public class Location : Identifiable<string>
     {
-       // [Attr]
-      //  public string Id { get; set; }
         [Attr]
         public string LocationClass { get; set; }
         [Attr]
@@ -24,12 +22,12 @@ namespace customer_consumption_api.Models
 
         // 'Customers table' and 'Locations table' has many to many relationship.
         // We have a bridge table 'CustomerLocations'.
-        [HasMany("Customer location")]
+        [HasMany]
         public ICollection<CustomerLocation> CustomerLocations { get; set; }
 
         // 'Meters table' and 'Locations table' has many to many relationship.
         // We have a bridge table 'MeterLocations'.
-         [HasMany("Meter location")]
+        [HasMany]
         public ICollection<MeterLocation> MeterLocations { get; set; }
     }
 }

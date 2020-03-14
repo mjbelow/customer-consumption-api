@@ -61,7 +61,7 @@ namespace customer_consumption_api
 
             app.UseJsonApi();
 
-           // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

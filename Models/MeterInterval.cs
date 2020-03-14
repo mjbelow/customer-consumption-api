@@ -8,8 +8,6 @@ namespace customer_consumption_api.Models
 {
     public class MeterInterval : Identifiable<Guid>
     {
-        //public Guid Id { get; set; }
-
         [Attr]
         public string ChannelId { get; set; }
         [Attr]
