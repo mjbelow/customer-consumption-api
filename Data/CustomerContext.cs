@@ -18,6 +18,7 @@ namespace customer_consumption_api.Data
         public DbSet<Meter> Meters { get; set; }
         public DbSet<MeterLocation> MeterLocations { get; set; }
         public DbSet<MeterInterval> MeterIntervals { get; set; }
+        public DbSet<Weather> Weather {get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,6 +59,10 @@ namespace customer_consumption_api.Data
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.Id)
             .HasDefaultValueSql("newid()");
+
+            modelBuilder.Entity<Weather>()
+            .Property(p => p.ReadDate)
+            .HasColumnType("Date");
         }
 
 
