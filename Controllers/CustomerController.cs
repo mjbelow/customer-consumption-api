@@ -13,7 +13,7 @@ namespace customer_consumption_api.Controllers
 {
     public class CustomerController : JsonApiController<Customer, string> 
     {
-        public CustomerController (IJsonApiOptions jsonApiOptions,  ILoggerFactory loggerFactory, IResourceService<Customer, string> resourceService) : base(jsonApiContext, loggerFactory, resourceService)
+        public CustomerController (IJsonApiOptions jsonApiOptions,  ILoggerFactory loggerFactory, IResourceService<Customer, string> resourceService) : base(jsonApiOptions, resourceService, loggerFactory)
         {
 
         }
