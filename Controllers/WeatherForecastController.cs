@@ -27,7 +27,7 @@ namespace customer_consumption_api.Controllers
         public async Task<DarkSky.Models.Forecast> Get(double latitude, double longitude, int year, int month, int day)
         {
           var darkSky = new DarkSky.Services.DarkSkyService("98613d2e894e074b90173af165d94d47");
-          var forecast = await darkSky.GetForecast(latitude, longitude, new DarkSky.Models.OptionalParameters{ForecastDateTime = new DateTime()});
+          var forecast = await darkSky.GetForecast(latitude, longitude, new DarkSky.Models.OptionalParameters{ForecastDateTime = new DateTime(year, month, day)});
 
           return forecast.Response;
         }
