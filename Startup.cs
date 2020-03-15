@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 //I added below namespaces.
 using customer_consumption_api.Data;
 using Microsoft.EntityFrameworkCore;
+using JsonApiDotNetCore.Extensions.EntityFrameworkCore;
+using JsonApiDotNetCore.Extensions;
 
 namespace customer_consumption_api
 {
@@ -33,6 +35,14 @@ namespace customer_consumption_api
             // I added below statement.
             services.AddDbContext<CustomerContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddJsonApi<CustomerContext>(
+                options => 
+                {
+                    options.RelativeLinks = true;
+                    options.DefaultPageSize = 25;
+                    options.IncludeTotalRecordCount = true;
+                    
+                });
             services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
@@ -48,6 +58,8 @@ namespace customer_consumption_api
             app.UseCors(
                 options => options.WithOrigins("*").AllowAnyHeader().AllowAnyMethod()
             );
+
+            app.UseJsonApi();
 
             app.UseHttpsRedirection();
 

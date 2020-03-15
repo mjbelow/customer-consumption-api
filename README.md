@@ -1,17 +1,24 @@
-# customer-consumption-api
+This README file outlines the details of API created with .Net Core to work with database using EF Core.
 
+## Prerequisites
 
+# Needs to install:
+* .Net Core SDK
+* Git CLI
+* Visual Code
+* SQL Server
 
-## Entity Framework Migrations
+# Packages:
+* JsonApiDotNetCore
+* EF Core
 
-#### Add Migration
+## How to run Entity Framework Migrations:
 
+*  Add Migration
 `dotnet ef migrations add [CommitName]`
 
-#### Remove Migration
-
+* Remove Migration
 `dotnet ef migrations remove`
 
-#### Run Migrations (Update Database)
-
+* Run Migration / Update Database
 `dotnet ef database update`

@@ -18,6 +18,7 @@ namespace customer_consumption_api.Data
         public DbSet<Meter> Meters { get; set; }
         public DbSet<MeterLocation> MeterLocations { get; set; }
         public DbSet<MeterInterval> MeterIntervals { get; set; }
+        public DbSet<Weather> Weather {get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +40,10 @@ namespace customer_consumption_api.Data
             .Property(p => p.ServiceEnd)
             .HasColumnType("Date");
 
+            modelBuilder.Entity<CustomerLocation>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<MeterLocation>()
             .Property(p => p.ActiveDate)
             .HasColumnType("Date");
@@ -47,11 +52,27 @@ namespace customer_consumption_api.Data
             .Property(p => p.InactiveDate)
             .HasColumnType("Date");
 
+            modelBuilder.Entity<MeterLocation>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<MeterInterval>()
             .Property(p => p.ReadDate)
             .HasColumnType("Date");
 
             modelBuilder.Entity<MeterInterval>()
+            .Property(p => p.Id)
+            .HasDefaultValueSql("newid()");
+
+            modelBuilder.Entity<Weather>()
+            .Property(p => p.ReadDate)
+            .HasColumnType("Date");
+
+            modelBuilder.Entity<Weather>()
+            .Property(p => p.Value)
+            .HasColumnType("decimal(5,2)");
+
+            modelBuilder.Entity<Weather>()
             .Property(p => p.Id)
             .HasDefaultValueSql("newid()");
         }

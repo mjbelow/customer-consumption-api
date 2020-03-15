@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using customer_consumption_api.Data;
 
 namespace customer_consumption_api.Migrations
 {
     [DbContext(typeof(CustomerContext))]
-    partial class CustomerContextModelSnapshot : ModelSnapshot
+    [Migration("20200314160513_AddIncrementalIdForCustomerLocation")]
+    partial class AddIncrementalIdForCustomerLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,11 +240,6 @@ namespace customer_consumption_api.Migrations
                     b.Property<DateTime>("ActiveDate")
                         .HasColumnType("Date");
 
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<DateTime>("InactiveDate")
                         .HasColumnType("Date");
 
@@ -251,45 +248,6 @@ namespace customer_consumption_api.Migrations
                     b.HasIndex("LocationId");
 
                     b.ToTable("MeterLocations");
-                });
-
-            modelBuilder.Entity("customer_consumption_api.Models.Weather", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("newid()");
-
-                    b.Property<string>("AlphaValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DataTypeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("QualityCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReadDate")
-                        .HasColumnType("Date");
-
-                    b.Property<DateTime>("ReadDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ReadHour")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Uom")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Value")
-                        .HasColumnType("decimal(5,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Weather");
                 });
 
             modelBuilder.Entity("customer_consumption_api.Models.CustomerLocation", b =>

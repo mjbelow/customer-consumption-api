@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using JsonApiDotNetCore.Models;
 
 namespace customer_consumption_api.Models
 {
-    public class MeterLocation
+    public class MeterLocation : Identifiable
     {
-        public string MeterId { get; set; }
-        public string LocationId { get; set; }
+        [Attr]
         public DateTime ActiveDate { get; set; }
+        [Attr]
         public DateTime InactiveDate { get; set; }
 
         // 'Meters table' and 'Locations table' has many to many relationship.
         // We have a bridge table 'MeterLocations'.
-        public Location Location { get; set; }
+        [HasOne]
+        public Location Location { get; set; }  
+        public string LocationId { get; set; }
+        [HasOne]
         public Meter Meter { get; set; }
+        public string MeterId { get; set; }
     }
 }
