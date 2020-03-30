@@ -39,7 +39,6 @@ namespace customer_consumption_api
                 options => 
                 {
                     options.RelativeLinks = true;
-                    options.DefaultPageSize = 25;
                     options.IncludeTotalRecordCount = true;
                     
                 });
